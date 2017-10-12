@@ -1,6 +1,6 @@
 #Проект службы по вывозу мусора
 
-#Библиотек
+#Библиотеки
 
 *[adminlte](https://adminlte.io/ "v2.4.2")
 *[boostrap](http://getbootstrap.com/ "v3.3.7")
