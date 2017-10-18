@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Контейнеры</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<link rel="stylesheet" href="../../css/custom.min.css">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+</head>
+
+<body class="sidebar-mini skin-green-light">
+
+	<div class="wrapper">
+
+		<header class="main-header">
+
+			<a href="#" class="logo">
+	      <span class="logo-mini"><b>ТБО</b></span>
+	      <span class="logo-lg"><b>Вывоз</b> Мусора</span>
+  	  </a>
+
+			<nav class="navbar navbar-static-top">
+	      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="../../index.html"><i class="fa fa-sign-out"></i> Выход</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+		</header>
+
+		<aside class="main-sidebar">
+
+			<section class="sidebar" style="height: auto;">
+
+	      <ul class="sidebar-menu tree" data-widget="tree">
+
+	        <li class="active treeview menu-open">
+	          <a href="#">
+	            <i class="fa fa-book"></i> <span>Справочники</span>
+	            <span class="pull-right-container">
+	              <i class="fa fa-angle-left pull-right"></i>
+	            </span>
+	          </a>
+	          <ul class="treeview-menu">
+							<li><a href="customers.html"><i class="fa fa-bell" aria-hidden="true"></i> Заказчики</a></li>
+						 	<li><a href="containers.html"><i class="fa fa-trash" aria-hidden="true"></i> Контейнеры</a></li>
+						 	<li><a href="cars.html"><i class="fa fa-truck" aria-hidden="true"></i> Автомобили</a></li>
+						 	<li class="active"><a href="drivers.html"><i class="fa fa-user" aria-hidden="true"></i> Водители</a></li>
+						 	<li><a href="polygons.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Полигоны</a></li>
+	          </ul>
+	        </li>
+
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-tasks"></i> <span>Заявки</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li><a href="claims.html"><i class="fa fa-list"></i> Реестр заявок</a></li>
+							<li><a href="waybills.html"><i class="fa fa-road"></i> Маршрутные листы</a></li>
+						</ul>
+					</li>
+
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-tv"></i> <span>Мониторинг</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<li><a href="index.html"><i class="fa fa-truck"></i> Контейнеров</a></li>
+							<li><a href="index.html"><i class="fa fa-car"></i> Автомобилей</a></li>
+						</ul>
+					</li>
+
+				</ul>
+	    </section>
+
+		</aside>
+
+		<div class="content-wrapper">
+
+			<section class="content-header">
+				<h1>Реестр водителей</h1>
+			</<section>
+
+			<section class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-driver">Добавить водителя</button>
+							</div>
+							<div class="box-body">
+								<table class="table table-hover table-bordered data-table">
+									<thead>
+										<tr>
+											<th class="order-cell">Номер</th>
+											<th>Фамилия</th>
+											<th>Имя</th>
+											<th>Отчество</th>
+											<th>ФИО для отображения</th>
+											<th>Телефон</th>
+											<th>Водительское удостоверение</th>
+											<th class="edit-cell-2"></th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td class="order-cell">1</td>
+											<td>Иванов</td>
+											<td>Иван</td>
+											<td>Иванович</td>
+											<td>Иванов И.И.</td>
+											<td>8 903 341 32 42</td>
+											<td>8834982347329</td>
+											<td class="edit-cell edit-cell-2">
+												<button href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit-driver"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button>
+												<button href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+		</div>
+
+		<footer class="main-footer"></footer>
+
+	</div>
+
+	<!-- Container Add Modal-->
+	<div class="modal fade" id="add-driver" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" id="exampleModalLabel">Добавить водителя</h4>
+				</div>
+	      <div class="modal-body">
+	        <div class="row">
+	        	<div class="col-md-6">
+							<div class="form-group">
+                <label for="driverName">Имя</label>
+                <input class="form-control" id="driverName" placeholder="Введите имя водителя" type="text">
+              </div>
+							<div class="form-group">
+                <label for="driverSurname">Фамилия</label>
+                <input class="form-control" id="driverSurname" placeholder="Введите фамилию водителя" type="text">
+              </div>
+							<div class="form-group">
+                <label for="driverPatronymic">Отчество</label>
+                <input class="form-control" id="driverPatronymic" placeholder="Введите отчество водителя" type="text">
+              </div>
+							<div class="form-group">
+								<label for="driverFIO">ФИО для отображения</label>
+								<input class="form-control" id="driverFIO" placeholder="Введите ФИО для отображения" type="text">
+							</div>
+							<div class="form-group">
+								<label for="driverPhone">Телефон</label>
+								<input class="form-control" id="driverPhone" placeholder="Введите телефон водителя" type="text">
+							</div>
+							<div class="form-group">
+								<label for="driveLicense">Водительское удостоверение</label>
+								<input class="form-control" id="driverLicense" placeholder="Введите номер водительского удостоверения" type="text">
+							</div>
+						</div>
+						<div class="col-md-6">
+
+							<div class="ta-center">
+
+	              <label>Фотография</label>
+
+	              <div class="profile-photo default-photo">
+	                <img src="../../img/no_photo_big.png" class="profile-user-img img-responsive img-circle" alt="Default Photo">
+	              </div>
+
+	            	<input class="hidden" name="loadImage" id="loadImage" title="Изменить фотографию" onchange="this.form.submit();" type="file">
+	              <label for="loadImage" class="btn btn-default">Загрузить фотографию</label>
+
+							</div>
+
+						</div>
+
+					</div>
+	      </div>
+	      <div class="modal-footer">
+					<button type="button" class="btn btn-success">Добавить</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Container Edit Modal-->
+	<div class="modal fade" id="edit-driver" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		 <div class="modal-content">
+			 <div class="modal-header">
+				 <h4 class="modal-title" id="exampleModalLabel">Добавить водителя</h4>
+			 </div>
+			 <div class="modal-body">
+				 <div class="row">
+					 <div class="col-md-6">
+						 <div class="form-group">
+								<label for="driverName">Имя</label>
+								<input class="form-control" id="driverName" placeholder="Введите имя водителя" type="text">
+							</div>
+						 <div class="form-group">
+								<label for="driverSurname">Фамилия</label>
+								<input class="form-control" id="driverSurname" placeholder="Введите фамилию водителя" type="text">
+							</div>
+						 <div class="form-group">
+								<label for="driverPatronymic">Отчество</label>
+								<input class="form-control" id="driverPatronymic" placeholder="Введите отчество водителя" type="text">
+							</div>
+						 <div class="form-group">
+							 <label for="driverFIO">ФИО для отображения</label>
+							 <input class="form-control" id="driverFIO" placeholder="Введите ФИО для отображения" type="text">
+						 </div>
+						 <div class="form-group">
+							 <label for="driverPhone">Телефон</label>
+							 <input class="form-control" id="driverPhone" placeholder="Введите телефон водителя" type="text">
+						 </div>
+						 <div class="form-group">
+							 <label for="driveLicense">Водительское удостоверение</label>
+							 <input class="form-control" id="driverLicense" placeholder="Введите номер водительского удостоверения" type="text">
+						 </div>
+					 </div>
+					 <div class="col-md-6">
+
+						 <div class="ta-center">
+
+							 <label>Фотография</label>
+
+							 <div class="profile-photo default-photo">
+								 <img src="../../img/no_photo_big.png" class="profile-user-img img-responsive img-circle" alt="Default Photo">
+							 </div>
+
+							 <input class="hidden" name="loadImage" id="loadImage" title="Изменить фотографию" onchange="this.form.submit();" type="file">
+							 <label for="loadImage" class="btn btn-default">Изменить фотографию</label>
+
+						 </div>
+
+					 </div>
+
+				 </div>
+			 </div>
+			 <div class="modal-footer">
+				 <button type="button" class="btn btn-success">Добавить</button>
+				 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+			 </div>
+		 </div>
+	 </div>
+	</div>
+
+
+	<script src="../../js/scripts.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVy7yj0Ekwa45B8FENeSln4yrH-JSwMHg&callback=initMap" async
+	defer></script>
+
+
+</body>
+</html>

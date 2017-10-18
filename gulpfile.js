@@ -21,7 +21,13 @@ gulp.task('scripts', function() {
 		'app/libs/bootstrap/dist/js/bootstrap.min.js',
 		'app/libs/admin-lte/dist/js/adminlte.min.js',
 		'app/libs/datatables.net/js/jquery.dataTables.min.js',
+		'app/libs/datatables.net-bs/js/dataTables.bootstrap.min.js',
 		'app/libs/select2/dist/js/select2.full.min.js',
+		'app/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+		'app/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ru.min.js',
+		'app/libs/icheck/icheck.min.js',
+		'app/js/dataTables.js',
+		'app/js/maps.js',
 		'app/js/common.js', // Всегда в конце
 		])
 	.pipe(concat('scripts.min.js'))
@@ -55,8 +61,8 @@ gulp.task('sass', function() {
 
 gulp.task('watch', ['sass', 'scripts', 'browser-sync'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']);
-	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['scripts']);
-	gulp.watch('app/*.html', browserSync.reload);
+	gulp.watch(['libs/**/*.js', 'app/js/*.js',  '!app/js/scripts.min.js'], ['scripts']);
+	gulp.watch(['app/*.html', 'app/content/**/*.html'], browserSync.reload);
 });
 
 gulp.task('imagemin', function() {
@@ -72,6 +78,18 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'scripts'], function() {
 		'app/.htaccess',
 		]).pipe(gulp.dest('dist'));
 
+	var buildManager = gulp.src([
+		'app/content/manager/*.html'
+	]).pipe(gulp.dest('dist/content/manager'));
+
+	var buildDirector = gulp.src([
+		'app/content/director/*.html'
+	]).pipe(gulp.dest('dist/content/director'));
+
+	var buildDriver = gulp.src([
+		'app/content/driver/*.html'
+	]).pipe(gulp.dest('dist/content/driver'));
+
 	var buildCss = gulp.src([
 		'app/css/custom.min.css',
 		]).pipe(gulp.dest('dist/css'));
@@ -83,6 +101,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'scripts'], function() {
 	var buildFonts = gulp.src([
 		'app/fonts/**/*',
 		]).pipe(gulp.dest('dist/fonts'));
+
 
 });
 
