@@ -117,7 +117,6 @@
 						<div class="box box-primary">
 							<div class="box-header with-border">
 								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-customer">Добавить заказчика</button>
-								<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add-customer">Загрузить</button>
 							</div>
 							<div class="box-body">
 								<table class="table table-hover table-bordered data-table">
@@ -345,118 +344,114 @@
 
 	</div>
 
-	<!-- Container Add Modal-->
+	<!-- Customer Add Modal-->
 	<div class="modal fade" id="add-customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Добавить контейнер</h4>
-				</div>
-	      <div class="modal-body">
-	        <div class="row">
-	        	<div class="col-md-6">
-							<div class="form-group">
-                <label for="containerNumber">Номер</label>
-                <input class="form-control" id="customerNumber" placeholder="Введите номер заказчика" type="text">
-              </div>
-							<div class="form-group">
-                <label for="containerType">ИНН</label>
-                <input class="form-control" id="customerINN" placeholder="Введите ИНН заказчика" type="text">
-              </div>
-              <div class="form-group">
-                <label for="containerType">Наименование</label>
-                <input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text">
-              </div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="">Статус</label>
-								<select class="select form-control" name="containerValue">
-									<option value="set">Новый</option>
-									<option value="full">Автивный</option>
-									<option value="empty">Не активный</option>
-								</select>
-							</div>
-              <div class="form-group">
-                <label for="containerType">Телефон</label>
-                <input class="form-control" id="customerPhone" placeholder="Введите телефонный номер заказчика" type="text">
-              </div>
-              <div class="form-group">
-                <label for="containerType">Адрес</label>
-                <input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text">
-              </div>
-						</div>
-						<div class="col-md-12">
-              <div class="form-group">
-                <label>Описание</label>
-                <textarea class="form-control" placeholder="Введите описание..."></textarea>
-              </div>
-	        	</div>
+				<form action="#" id="customer-add-form">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">Добавить контейнер</h4>
 					</div>
-	      </div>
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-success">Добавить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
+		      <div class="modal-body">
+		        <div class="row">
+		        	<div class="col-md-6">
+								<div class="form-group">
+									<label for="containerType">Наименование</label>
+									<input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text" required>
+	              </div>
+								<div class="form-group">
+									<label for="containerType">Телефон</label>
+									<input class="form-control form-control-tel" id="customerPhone" placeholder="+7(___)  __-__-__" type="text" required>
+								</div>
+								<div class="form-group">
+									<label for="containerType">Адрес</label>
+									<input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="containerType">ИНН</label>
+									<input class="form-control form-control-inn" id="customerINN" placeholder="____________" type="text" required>
+								</div>
+								<div class="form-group">
+									<label for="containerType">Контактное лицо</label>
+									<input class="form-control" id="contactName" placeholder="Введите контактное лицо" type="text" required >
+								</div>
+								<div class="form-group form-group_no-label">
+									<input class="form-control icheck" type="checkbox" id="customer-blocked">
+									<label for="customer-blocked">Заблокирован</label>
+								</div>
+							</div>
+							<div class="col-md-12">
+	              <div class="form-group">
+	                <label>Описание</label>
+	                <textarea class="form-control" placeholder="Введите описание..."></textarea>
+	              </div>
+		        	</div>
+						</div>
+		      </div>
+		      <div class="modal-footer">
+						<button type="submit" class="btn btn-success">Добавить</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+		      </div>
+				</form>
 	    </div>
 	  </div>
 	</div>
 
-	<!-- Container Edit Modal-->
+	<!-- Customer Edit Modal-->
 	<div class="modal fade" id="edit-customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Редактировать профиль заказчика</h4>
-	      </div>
-        <div class="modal-body">
-	        <div class="row">
-	        	<div class="col-md-6">
-							<div class="form-group">
-                <label for="containerNumber">Номер</label>
-                <input class="form-control" id="customerNumber" placeholder="Введите номер заказчика" type="text">
-              </div>
-							<div class="form-group">
-                <label for="containerType">ИНН</label>
-                <input class="form-control" id="customerINN" placeholder="Введите ИНН заказчика" type="text">
-              </div>
-              <div class="form-group">
-                <label for="containerType">Наименование</label>
-                <input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text">
-              </div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="">Статус</label>
-								<select class="select form-control" name="containerValue">
-									<option value="set">Новый</option>
-									<option value="full">Автивный</option>
-									<option value="empty">Не активный</option>
-								</select>
-							</div>
-              <div class="form-group">
-                <label for="containerType">Телефон</label>
-                <input class="form-control" id="customerPhone" placeholder="Введите телефонный номер заказчика" type="text">
-              </div>
-              <div class="form-group">
-                <label for="containerType">Адрес</label>
-                <input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text">
-              </div>
-						</div>
-						<div class="col-md-12">
-              <div class="form-group">
-                <label>Описание</label>
-                <textarea class="form-control" placeholder="Введите описание..."></textarea>
-              </div>
-	        	</div>
-					</div>
-	      </div>
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Сохранить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
-	    </div>
-	  </div>
+		<div class="modal-dialog" role="document">
+ 		 <div class="modal-content">
+ 			 <form action="№" id="customer-edit-form">
+ 				 <div class="modal-header">
+ 					 <h4 class="modal-title" id="exampleModalLabel">Добавить контейнер</h4>
+ 				 </div>
+ 				 <div class="modal-body">
+ 					 <div class="row">
+ 						 <div class="col-md-6">
+ 							 <div class="form-group">
+ 								 <label for="containerType">Наименование</label>
+ 								 <input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text" required>
+ 							 </div>
+ 							 <div class="form-group">
+ 								 <label for="containerType">Телефон</label>
+ 								 <input class="form-control form-control-tel" id="customerPhone" placeholder="+7(___)  __-__-__" type="text" required>
+ 							 </div>
+ 							 <div class="form-group">
+ 								 <label for="containerType">Адрес</label>
+ 								 <input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text" required>
+ 							 </div>
+ 						 </div>
+ 						 <div class="col-md-6">
+ 							 <div class="form-group">
+ 								 <label for="containerType">ИНН</label>
+ 								 <input class="form-control form-control-inn" id="customerINN" placeholder="____________" type="text" required>
+ 							 </div>
+ 							 <div class="form-group">
+ 								 <label for="containerType">Контактное лицо</label>
+ 								 <input class="form-control" id="contactName" placeholder="Введите контактное лицо" type="text" required >
+ 							 </div>
+ 							 <div class="form-group form-group_no-label">
+ 								 <input class="form-control icheck" type="checkbox" id="customer-blocked">
+ 								 <label for="customer-blocked">Заблокирован</label>
+ 							 </div>
+ 						 </div>
+ 						 <div class="col-md-12">
+ 							 <div class="form-group">
+ 								 <label>Описание</label>
+ 								 <textarea class="form-control" placeholder="Введите описание..."></textarea>
+ 							 </div>
+ 						 </div>
+ 					 </div>
+ 				 </div>
+ 				 <div class="modal-footer">
+ 					 <button type="submit" class="btn btn-success">Добавить</button>
+ 					 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+ 				 </div>
+ 			 </form>
+ 		 </div>
+ 	 </div>
 	</div>
 
 

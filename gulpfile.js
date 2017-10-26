@@ -25,7 +25,9 @@ gulp.task('scripts', function() {
 		'app/libs/select2/dist/js/select2.full.min.js',
 		'app/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
 		'app/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ru.min.js',
+		'app/libs/fontawesome-markers/fontawesome-markers.min.js',
 		'app/libs/icheck/icheck.min.js',
+		'app/libs/inputmask/dist/jquery.inputmask.bundle.js',
 		'app/js/dataTables.js',
 		'app/js/maps.js',
 		'app/js/common.js', // Всегда в конце

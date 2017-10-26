@@ -255,128 +255,124 @@
 
 	</div>
 
-	<!-- Container Add Modal-->
+	<!-- Driver Add Modal-->
 	<div class="modal fade" id="add-driver" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
+  	<div class="modal-dialog" role="document">
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Добавить водителя</h4>
-				</div>
-	      <div class="modal-body">
-	        <div class="row">
-	        	<div class="col-md-6">
-							<div class="form-group">
-                <label for="driverName">Имя</label>
-                <input class="form-control" id="driverName" placeholder="Введите имя водителя" type="text">
-              </div>
-							<div class="form-group">
-                <label for="driverSurname">Фамилия</label>
-                <input class="form-control" id="driverSurname" placeholder="Введите фамилию водителя" type="text">
-              </div>
-							<div class="form-group">
-                <label for="driverPatronymic">Отчество</label>
-                <input class="form-control" id="driverPatronymic" placeholder="Введите отчество водителя" type="text">
-              </div>
-							<div class="form-group">
-								<label for="driverFIO">ФИО для отображения</label>
-								<input class="form-control" id="driverFIO" placeholder="Введите ФИО для отображения" type="text">
-							</div>
-							<div class="form-group">
-								<label for="driverPhone">Телефон</label>
-								<input class="form-control" id="driverPhone" placeholder="Введите телефон водителя" type="text">
-							</div>
-							<div class="form-group">
-								<label for="driveLicense">Водительское удостоверение</label>
-								<input class="form-control" id="driverLicense" placeholder="Введите номер водительского удостоверения" type="text">
-							</div>
-						</div>
-						<div class="col-md-6">
-
-							<div class="ta-center">
-
-	              <label>Фотография</label>
-
-	              <div class="profile-photo default-photo">
-	                <img src="../../img/no_photo_big.png" class="profile-user-img img-responsive img-circle" alt="Default Photo">
-	              </div>
-
-	            	<input class="hidden" name="loadImage" id="loadImage" title="Изменить фотографию" onchange="this.form.submit();" type="file">
-	              <label for="loadImage" class="btn btn-default">Загрузить фотографию</label>
-
-							</div>
-
-						</div>
-
+				<form action="#" id="driver-add-form">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">Добавить водителя</h4>
 					</div>
-	      </div>
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-success">Добавить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
+		      <div class="modal-body">
+		        <div class="row">
+		        	<div class="col-md-6">
+								<div class="form-group">
+	                <label for="driverName">Имя</label>
+	                <input class="form-control" id="driverName" placeholder="Введите имя водителя" type="text" required>
+	              </div>
+								<div class="form-group">
+	                <label for="driverSurname">Фамилия</label>
+	                <input class="form-control" id="driverSurname" placeholder="Введите фамилию водителя" type="text" required>
+	              </div>
+								<div class="form-group">
+	                <label for="driverPatronymic">Отчество</label>
+	                <input class="form-control" id="driverPatronymic" placeholder="Введите отчество водителя" type="text" required>
+	              </div>
+								<div class="form-group">
+									<label for="driverFIO">ФИО для отображения</label>
+									<input class="form-control" id="driverFIO" placeholder="Введите ФИО для отображения" type="text" required>
+								</div>
+								<div class="form-group">
+									<label for="driverPhone">Телефон</label>
+									<input class="form-control form-control-tel" id="driverPhone" type="text" placeholder="+7(___) __-__-__" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+
+								<div class="ta-center">
+
+		              <label>Фотография</label>
+
+		              <div class="profile-photo default-photo">
+		                <img src="../../img/no_photo_big.png" class="profile-user-img img-responsive img-circle" alt="Default Photo">
+		              </div>
+
+		            	<input class="hidden" name="loadImage" id="loadImage" title="Изменить фотографию" onchange="this.form.submit();" type="file">
+		              <label for="loadImage" class="btn btn-default">Загрузить фотографию</label>
+
+								</div>
+
+							</div>
+
+						</div>
+		      </div>
+		      <div class="modal-footer">
+						<button type="submit" class="btn btn-success">Добавить</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+		      </div>
+				</form>
 	    </div>
 	  </div>
 	</div>
 
-	<!-- Container Edit Modal-->
+	<!-- Driver Edit Modal-->
 	<div class="modal fade" id="edit-driver" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-		 <div class="modal-content">
-			 <div class="modal-header">
-				 <h4 class="modal-title" id="exampleModalLabel">Добавить водителя</h4>
-			 </div>
-			 <div class="modal-body">
-				 <div class="row">
-					 <div class="col-md-6">
-						 <div class="form-group">
-								<label for="driverName">Имя</label>
-								<input class="form-control" id="driverName" placeholder="Введите имя водителя" type="text">
+	    <div class="modal-content">
+				<form action="#" id="driver-add-form">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">Добавить водителя</h4>
+					</div>
+		      <div class="modal-body">
+		        <div class="row">
+		        	<div class="col-md-6">
+								<div class="form-group">
+	                <label for="driverName">Имя</label>
+	                <input class="form-control" id="driverName" placeholder="Введите имя водителя" type="text" required>
+	              </div>
+								<div class="form-group">
+	                <label for="driverSurname">Фамилия</label>
+	                <input class="form-control" id="driverSurname" placeholder="Введите фамилию водителя" type="text" required>
+	              </div>
+								<div class="form-group">
+	                <label for="driverPatronymic">Отчество</label>
+	                <input class="form-control" id="driverPatronymic" placeholder="Введите отчество водителя" type="text" required>
+	              </div>
+								<div class="form-group">
+									<label for="driverFIO">ФИО для отображения</label>
+									<input class="form-control" id="driverFIO" placeholder="Введите ФИО для отображения" type="text" required>
+								</div>
+								<div class="form-group">
+									<label for="driverPhone">Телефон</label>
+									<input class="form-control form-control-tel" id="driverPhone" type="text" placeholder="+7(___) __-__-__" required>
+								</div>
 							</div>
-						 <div class="form-group">
-								<label for="driverSurname">Фамилия</label>
-								<input class="form-control" id="driverSurname" placeholder="Введите фамилию водителя" type="text">
+							<div class="col-md-6">
+
+								<div class="ta-center">
+
+		              <label>Фотография</label>
+
+		              <div class="profile-photo default-photo">
+		                <img src="../../img/no_photo_big.png" class="profile-user-img img-responsive img-circle" alt="Default Photo">
+		              </div>
+
+		            	<input class="hidden" name="loadImage" id="loadImage" title="Изменить фотографию" onchange="this.form.submit();" type="file">
+		              <label for="loadImage" class="btn btn-default">Загрузить фотографию</label>
+
+								</div>
+
 							</div>
-						 <div class="form-group">
-								<label for="driverPatronymic">Отчество</label>
-								<input class="form-control" id="driverPatronymic" placeholder="Введите отчество водителя" type="text">
-							</div>
-						 <div class="form-group">
-							 <label for="driverFIO">ФИО для отображения</label>
-							 <input class="form-control" id="driverFIO" placeholder="Введите ФИО для отображения" type="text">
-						 </div>
-						 <div class="form-group">
-							 <label for="driverPhone">Телефон</label>
-							 <input class="form-control" id="driverPhone" placeholder="Введите телефон водителя" type="text">
-						 </div>
-						 <div class="form-group">
-							 <label for="driveLicense">Водительское удостоверение</label>
-							 <input class="form-control" id="driverLicense" placeholder="Введите номер водительского удостоверения" type="text">
-						 </div>
-					 </div>
-					 <div class="col-md-6">
 
-						 <div class="ta-center">
-
-							 <label>Фотография</label>
-
-							 <div class="profile-photo default-photo">
-								 <img src="../../img/no_photo_big.png" class="profile-user-img img-responsive img-circle" alt="Default Photo">
-							 </div>
-
-							 <input class="hidden" name="loadImage" id="loadImage" title="Изменить фотографию" onchange="this.form.submit();" type="file">
-							 <label for="loadImage" class="btn btn-default">Изменить фотографию</label>
-
-						 </div>
-
-					 </div>
-
-				 </div>
-			 </div>
-			 <div class="modal-footer">
-				 <button type="button" class="btn btn-success">Добавить</button>
-				 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-			 </div>
-		 </div>
-	 </div>
+						</div>
+		      </div>
+		      <div class="modal-footer">
+						<button type="submit" class="btn btn-success">Сохранить</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+		      </div>
+				</form>
+	    </div>
+	  </div>
 	</div>
 
 

@@ -329,24 +329,205 @@
 
 	</div>
 
-	<!-- Container Add Modal-->
+	<!-- Claim Add Modal-->
 	<div class="modal fade" id="add-container" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Добавить заявку</h4>
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+					<form action="#" id="claim-add-form">
+			      <div class="modal-header">
+			        <h4 class="modal-title" id="exampleModalLabel">Добавить заявку</h4>
+						</div>
+
+			      <div class="modal-body">
+
+			        <div class="row">
+
+			        	<div class="col-md-6">
+
+									<div class="form-group">
+		                <label for="containerNumber">Номер</label>
+		                <input class="form-control" id="claimNumber" placeholder="Введите номер заявки" type="text" required>
+		              </div>
+
+									<div class="form-group">
+										<label for="">Контейнер</label>
+										<select class="select form-control" name="claimContainer">
+											<option value="1">K1</option>
+											<option value="2">K2</option>
+											<option value="3">K3</option>
+											<option value="4">K4</option>
+											<option value="5">K5</option>
+											<option value="6">K6</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label for="">Автомобиль</label>
+										<select class="select form-control" name="claimAuto">
+											<option value="1">МАЗ М012РТ</option>
+											<option value="2">КАМАЗ М013РК</option>
+											<option value="3">УРАЛ М112ОТ</option>
+											<option value="4">ГАЗЕЛЬ Т78ОВ</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label for="">Водитель</label>
+										<select class="select form-control" name="claimDriver">
+											<option value="1">Иванов Иван Иванович</option>
+											<option value="2">Петров Петр Петрович</option>
+											<option value="3">Сидоров Сидор Сидорович</option>
+											</select>
+									</div>
+
+									<div class="form-group">
+										<label for="containerNumber">Сумма</label>
+										<input class="form-control" id="claimSum" placeholder="Введите сумму заявки" type="text">
+									</div>
+
+									<div class="form-group">
+										<label for="containerNumber">Адрес</label>
+										<input class="form-control" id="claimAddresss" placeholder="Введите адрес заявки" type="text" required>
+									</div>
+
+								</div>
+
+								<div class="col-md-6">
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="datepicker">Дата создания</label>
+												<div class="input-group date">
+													<div class="input-group-addon">
+														<i class="fa fa-calendar"></i>
+													</div>
+													<input class="form-control pull-right datepicker" id="create-date" type="text">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="datepicker">Время</label>
+												<div class="input-group ">
+													<input class="form-control pull-right form-control-time" id="create-time" type="text" placeholde="__:__">
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="datepicker">Дата установки</label>
+												<div class="input-group date">
+													<div class="input-group-addon">
+														<i class="fa fa-calendar"></i>
+													</div>
+													<input class="form-control pull-right datepicker" id="set-date" type="text">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="datepicker">Время</label>
+												<div class="input-group ">
+													<input class="form-control pull-right form-control-time" id="set-time" type="text" placeholde="__:__">
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="datepicker">Дата вывоза</label>
+												<div class="input-group date">
+													<div class="input-group-addon">
+														<i class="fa fa-calendar"></i>
+													</div>
+													<input class="form-control pull-right datepicker" id="remove-date" type="text" placeholde="__:__">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="datepicker">Время</label>
+												<div class="input-group ">
+													<input class="form-control pull-right form-control-time" id="remove-time" type="text">
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="">Статус</label>
+										<select class="select form-control" name="containerValue">
+											<option value="set">Установлен</option>
+											<option value="full">Заполнен</option>
+											<option value="empty">Пустой</option>
+										</select>
+									</div>
+
+
+									<div class="form-group">
+										<label for="">Полигон</label>
+										<select class="select form-control" name="claimPolygon">
+											<option value="1">Полигон №1</option>
+											<option value="2">Полигон №2</option>
+											<option value="3">Полигон №3</option>
+										</select>
+									</div>
+
+									<div class="form-group form-group_no-label">
+										<input class="form-control icheck" type="checkbox" id="payment-paid">
+										<label for="payment-paid">Оплачено</label>
+										<br>
+										<input type="radio" class="form-control icheck" name="payment" id="payment-cash">
+										<label for="payment-cash">Наличная оплата</label>
+										</br>
+										<input type="radio" class="form-control icheck" name="payment" id="payment-cashless">
+										<label for="payment-cashless">Безналичная оплата</label>
+									</div>
+
+								</div>
+
+								<div class="col-md-12">
+									<div id="add-container-map" class="map-container"></div>
+								</div>
+
+							</div>
+
+			      </div>
+
+			      <div class="modal-footer">
+							<button type="submit" class="btn btn-success">Добавить</button>
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+			      </div>
+					</form>
+		    </div>
+		  </div>
+	</div>
+
+	<!-- Claim Edit Modal-->
+	<div class="modal fade" id="edit-claim" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<form action="#" id="claim-edit-form">
+			<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLabel">Добавить заявку</h4>
 				</div>
 
-	      <div class="modal-body">
+				<div class="modal-body">
 
-	        <div class="row">
+					<div class="row">
 
-	        	<div class="col-md-6">
+						<div class="col-md-6">
 
 							<div class="form-group">
-                <label for="containerNumber">Номер</label>
-                <input class="form-control" id="claimNumber" placeholder="Введите номер заявки" type="text">
-              </div>
+								<label for="containerNumber">Номер</label>
+								<input class="form-control" id="claimNumber" placeholder="Введите номер заявки" type="text" required>
+							</div>
 
 							<div class="form-group">
 								<label for="">Контейнер</label>
@@ -385,27 +566,78 @@
 							</div>
 
 							<div class="form-group">
-								<input class="form-control icheck" type="checkbox" id="payment-paid">
-								<label for="payment-paid">Оплачено</label>
+								<label for="containerNumber">Адрес</label>
+								<input class="form-control" id="claimAddresss" placeholder="Введите адрес заявки" type="text" required>
 							</div>
 
 						</div>
 
 						<div class="col-md-6">
 
-							<div class="form-group">
-								<label for="datepicker">Дата</label>
-								<div class="input-group date">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="datepicker">Дата создания</label>
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input class="form-control pull-right datepicker" id="create-date" type="text">
+										</div>
 									</div>
-									<input class="form-control pull-right" id="datepicker" type="text">
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="datepicker">Время</label>
+										<div class="input-group ">
+											<input class="form-control pull-right form-control-time" id="create-time" type="text" placeholde="__:__">
+										</div>
+									</div>
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="containerNumber">Адрес</label>
-								<input class="form-control" id="claimAddresss" placeholder="Введите адрес заявки" type="text">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="datepicker">Дата установки</label>
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input class="form-control pull-right datepicker" id="create-date" type="text">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="datepicker">Время</label>
+										<div class="input-group ">
+											<input class="form-control pull-right form-control-time" id="create-time" type="text" placeholde="__:__">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="datepicker">Дата вывоза</label>
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input class="form-control pull-right datepicker" id="create-date" type="text" placeholde="__:__">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="datepicker">Время</label>
+										<div class="input-group ">
+											<input class="form-control pull-right form-control-time" id="create-time" type="text">
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div class="form-group">
@@ -428,6 +660,9 @@
 							</div>
 
 							<div class="form-group form-group_no-label">
+								<input class="form-control icheck" type="checkbox" id="payment-paid">
+								<label for="payment-paid">Оплачено</label>
+								<br>
 								<input type="radio" class="form-control icheck" name="payment" id="payment-cash">
 								<label for="payment-cash">Наличная оплата</label>
 								</br>
@@ -443,141 +678,16 @@
 
 					</div>
 
-	      </div>
-
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-success">Добавить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
-
-	    </div>
-	  </div>
-	</div>
-
-	<!-- Container Add Modal-->
-	<div class="modal fade" id="edit-claim" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Редактировать</h4>
 				</div>
 
-	      <div class="modal-body">
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success">Сохранить</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+				</div>
 
-	        <div class="row">
-
-	        	<div class="col-md-6">
-
-							<div class="form-group">
-                <label for="containerNumber">Номер</label>
-                <input class="form-control" id="claimNumber" placeholder="Введите номер заявки" type="text">
-              </div>
-
-							<div class="form-group">
-								<label for="">Контейнер</label>
-								<select class="select form-control" name="claimContainer">
-									<option value="1">K1</option>
-									<option value="2">K2</option>
-									<option value="3">K3</option>
-									<option value="4">K4</option>
-									<option value="5">K5</option>
-									<option value="6">K6</option>
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="">Автомобиль</label>
-								<select class="select form-control" name="claimAuto">
-									<option value="1">МАЗ М012РТ</option>
-									<option value="2">КАМАЗ М013РК</option>
-									<option value="3">УРАЛ М112ОТ</option>
-									<option value="4">ГАЗЕЛЬ Т78ОВ</option>
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="">Водитель</label>
-								<select class="select form-control" name="claimDriver">
-									<option value="1">Иванов Иван Иванович</option>
-									<option value="2">Петров Петр Петрович</option>
-									<option value="3">Сидоров Сидор Сидорович</option>
-									</select>
-							</div>
-
-							<div class="form-group">
-								<label for="containerNumber">Сумма</label>
-								<input class="form-control" id="claimSum" placeholder="Введите сумму заявки" type="text">
-							</div>
-
-							<div class="form-group">
-								<input class="form-control icheck" type="checkbox" id="payment-paid">
-								<label for="payment-paid">Оплачено</label>
-							</div>
-
-						</div>
-
-						<div class="col-md-6">
-
-							<div class="form-group">
-								<label for="datepicker">Дата</label>
-								<div class="input-group date">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
-									</div>
-									<input class="form-control pull-right" id="datepicker" type="text">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="containerNumber">Адрес</label>
-								<input class="form-control" id="claimAddresss" placeholder="Введите адрес заявки" type="text">
-							</div>
-
-							<div class="form-group">
-								<label for="">Статус</label>
-								<select class="select form-control" name="containerValue">
-									<option value="set">Установлен</option>
-									<option value="full">Заполнен</option>
-									<option value="empty">Пустой</option>
-								</select>
-							</div>
-
-
-							<div class="form-group">
-								<label for="">Полигон</label>
-								<select class="select form-control" name="claimPolygon">
-									<option value="1">Полигон №1</option>
-									<option value="2">Полигон №2</option>
-									<option value="3">Полигон №3</option>
-								</select>
-							</div>
-
-							<div class="form-group form-group_no-label">
-								<input type="radio" class="form-control icheck" name="payment" id="payment-cash">
-								<label for="payment-cash">Наличная оплата</label>
-								</br>
-								<input type="radio" class="form-control icheck" name="payment" id="payment-cashless">
-								<label for="payment-cashless">Безналичная оплата</label>
-							</div>
-
-						</div>
-
-						<div class="col-md-12">
-	        		<div id="edit-container-map" class="map-container"></div>
-	        	</div>
-
-					</div>
-
-	      </div>
-
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-primary pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Распечатать</button>
-					<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Сохранить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
-
-	    </div>
-	  </div>
+			</div>
+		</div>
+		</form>
 	</div>
 
 

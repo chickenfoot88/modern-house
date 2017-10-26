@@ -210,60 +210,53 @@
 	<div class="modal fade" id="add-polygon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Редактировать полигон</h4>
-				</div>
-	      <div class="modal-body">
-	        <div class="row">
-	        	<div class="col-md-6">
-							<div class="form-group">
-                <label for="containerNumber">Номер</label>
-                <input class="form-control" id="customerNumber" placeholder="Введите номер заказчика" type="text">
-              </div>
-      			</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="">Статус</label>
-								<select class="select form-control" name="containerValue">
-									<option value="set">Новый</option>
-									<option value="full">Автивный</option>
-									<option value="empty">Не активный</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label for="containerType">Наименование</label>
-								<input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text">
-							</div>
-						</div>
-						<div class="col-md-6">
-				      <div class="form-group">
-	              <label for="containerType">Телефон</label>
-	              <input class="form-control" id="customerPhone" placeholder="Введите телефонный номер заказчика" type="text">
-	            </div>
-						</div>
-						<div class="col-md-6">
-	            <div class="form-group">
-	              <label for="containerType">Адрес</label>
-	              <input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text">
-	            </div>
-						</div>
-						<div class="col-md-12">
-	            <div class="form-group">
-	              <label>Описание</label>
-	              <textarea class="form-control" placeholder="Введите описание..."></textarea>
-	            </div>
-	        	</div>
-						<div class="col-md-12">
-							<div id="add-polygon-map" class="map-container"></div>
-						</div>
+				<form action="#" id="polygon-add-form">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">Редактировать полигон</h4>
 					</div>
-	      </div>
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-success">Добавить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
+		      <div class="modal-body">
+		        <div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="containerType">Наименование</label>
+									<input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="containerType">Адрес</label>
+									<input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+					      <div class="form-group">
+		              <label for="containerType">Телефон</label>
+		              <input class="form-control form-control-tel" id="customerPhone" placeholder="+7(___) __-__-__" type="text">
+		            </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group form-group_no-label">
+									<input class="form-control icheck" type="checkbox" id="polygon-closed">
+									<label for="polygon-closed">Закрыт</label>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+		            <div class="form-group">
+		              <label>Описание</label>
+		              <textarea class="form-control" placeholder="Введите описание..."></textarea>
+		            </div>
+		        	</div>
+							<div class="col-md-12">
+								<div id="add-polygon-map" class="map-container"></div>
+							</div>
+						</div>
+		      </div>
+		      <div class="modal-footer">
+						<button type="submit" class="btn btn-success">Добавить</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+		      </div>
+				</form>
 	    </div>
 	  </div>
 	</div>
@@ -271,63 +264,56 @@
 	<!-- Container Edit Modal-->
 	<div class="modal fade" id="edit-polygon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h4 class="modal-title" id="exampleModalLabel">Добавить полигон</h4>
-				</div>
-	      <div class="modal-body">
-	        <div class="row">
-	        	<div class="col-md-6">
-							<div class="form-group">
-                <label for="containerNumber">Номер</label>
-                <input class="form-control" id="customerNumber" placeholder="Введите номер заказчика" type="text">
-              </div>
-      			</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="">Статус</label>
-								<select class="select form-control" name="containerValue">
-									<option value="set">Новый</option>
-									<option value="full">Автивный</option>
-									<option value="empty">Не активный</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label for="containerType">Наименование</label>
-								<input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text">
-							</div>
-						</div>
-						<div class="col-md-6">
-				      <div class="form-group">
-	              <label for="containerType">Телефон</label>
-	              <input class="form-control" id="customerPhone" placeholder="Введите телефонный номер заказчика" type="text">
-	            </div>
-						</div>
-						<div class="col-md-6">
-	            <div class="form-group">
-	              <label for="containerType">Адрес</label>
-	              <input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text">
-	            </div>
-						</div>
-						<div class="col-md-12">
-	            <div class="form-group">
-	              <label>Описание</label>
-	              <textarea class="form-control" placeholder="Введите описание..."></textarea>
-	            </div>
-	        	</div>
-						<div class="col-md-12">
-							<div id="edit-polygon-map" class="map-container"></div>
-						</div>
-					</div>
-	      </div>
-	      <div class="modal-footer">
-					<button type="button" class="btn btn-success">Сохранить</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-	      </div>
-	    </div>
-	  </div>
+		 <div class="modal-content">
+			 <form action="#" id="polygon-add-form">
+				 <div class="modal-header">
+					 <h4 class="modal-title" id="exampleModalLabel">Редактировать полигон</h4>
+				 </div>
+				 <div class="modal-body">
+					 <div class="row">
+						 <div class="col-md-12">
+							 <div class="form-group">
+								 <label for="containerType">Наименование</label>
+								 <input class="form-control" id="customerName" placeholder="Введите наименование заказчика" type="text">
+							 </div>
+						 </div>
+						 <div class="col-md-12">
+							 <div class="form-group">
+								 <label for="containerType">Адрес</label>
+								 <input class="form-control" id="customerAddress" placeholder="Введите адрес заказчика" type="text">
+							 </div>
+						 </div>
+						 <div class="col-md-6">
+							 <div class="form-group">
+								 <label for="containerType">Телефон</label>
+								 <input class="form-control form-control-tel" id="customerPhone" placeholder="+7(___) __-__-__" type="text">
+							 </div>
+						 </div>
+						 <div class="col-md-6">
+							 <div class="form-group form-group_no-label">
+								 <input class="form-control icheck" type="checkbox" id="polygon-closed">
+								 <label for="polygon-closed">Закрыт</label>
+							 </div>
+						 </div>
+
+						 <div class="col-md-12">
+							 <div class="form-group">
+								 <label>Описание</label>
+								 <textarea class="form-control" placeholder="Введите описание..."></textarea>
+							 </div>
+						 </div>
+						 <div class="col-md-12">
+							 <div id="add-polygon-map" class="map-container"></div>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="modal-footer">
+					 <button type="submit" class="btn btn-success">Сохранить</button>
+					 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+				 </div>
+			 </form>
+		 </div>
+	 </div>
 	</div>
 
 
