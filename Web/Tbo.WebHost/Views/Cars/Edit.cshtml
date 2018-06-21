@@ -1,0 +1,59 @@
+﻿@using Core.Extensions
+@using Domain.Dictionary.Cars.Enums
+@model Domain.Dictionary.Cars.Models.CarGetModel
+
+@{
+  var serviceabilityValuesList = Enum
+  .GetValues(typeof(CarServiceability))
+  .Cast<CarServiceability>()
+    .Select(x => new SelectListItem { Text = x.GetDescription(), Value = x.ToString() })
+    .ToList();
+  }
+  <div class="wrapper">
+    @Html.Partial("_HeaderPatial")
+    @Html.Partial("_SidebarPartial")
+    <div class="content-wrapper">
+      <section class="content fixed-320">
+
+        @using (Html.BeginForm("Edit", "Cars", new { id = Model.Id }, FormMethod.Post))
+        {
+          @Html.HiddenFor(x => x.Id, new { id = "carId"})
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                @Html.LabelFor(x => x.Mark, "Марка")
+                @Html.TextBoxFor(x => x.Mark, new { @class = "form-control", id = "carBrand", placeholder = "Введите марку автомобиля", })
+              </div>
+              <div class="form-group">
+                @Html.LabelFor(x => x.Number, "Номер")
+                @Html.TextBoxFor(x => x.Number, new { @class = "form-control", id = "carNumber", placeholder = "Введите номер автомобиля" })
+              </div>
+              <div class="form-group">
+                @Html.LabelFor(x => x.Serviceability, "Исправность")
+                @Html.DropDownListFor(x => x.Serviceability, serviceabilityValuesList, new { @class = "select form-control" })
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              @Html.Action("List", "CarContainerTypes", new { carId = Model.Id })
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <input type="submit" class="btn btn-success" value="Сохранить">
+              <a href="@Url.Action("Index","Cars")" class="btn btn-default">Отменить</a>
+            </div>
+          </div>
+        }
+      </section>
+    </div>
+    <footer class="main-footer"></footer>
+  </div>
+
+
+  <div class="modal fade modal-window" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-small" id="dialogContent">
+    </div>
+  </div>

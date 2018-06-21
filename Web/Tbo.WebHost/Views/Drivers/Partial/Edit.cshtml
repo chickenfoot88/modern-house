@@ -1,0 +1,71 @@
+﻿@model Tbo.WebHost.Models.Dictionaries.Drivers.DriverEditWindowModel<Domain.Dictionary.Drivers.Models.DriverGetModel>
+
+@{
+  Layout = null;
+}
+
+@using (Ajax.BeginForm("Edit", "Drivers", FormMethod.Post, new AjaxOptions { HttpMethod = "POST" },  new { @class = "modal-content"}))
+{
+  @Html.HiddenFor(x => x.Data.Id)
+  <div class="modal-header">
+    <h4 class="modal-title" id="exampleModalLabel">Редактирование водителя</h4>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          @Html.LabelFor(x => x.Data.LastName, "Фамилия")
+          @Html.TextBoxFor(x => x.Data.LastName, new { @class = "form-control", id = "driverSurname", placeholder = "Введите фамилию водителя", required = "required" })
+        </div>
+        <div class="form-group">
+          @Html.LabelFor(x => x.Data.FirstName, "Имя")
+          @Html.TextBoxFor(x => x.Data.FirstName, new { @class = "form-control", id = "driverName", placeholder = "Введите имя водителя", required = "required" })
+        </div>
+        <div class="form-group">
+          @Html.LabelFor(x => x.Data.Patronymic, "Отчество")
+          @Html.TextBoxFor(x => x.Data.Patronymic, new { @class = "form-control", id = "driverPatronymic", placeholder = "Введите отчество водителя" })
+        </div>
+        <div class="form-group">
+          @Html.LabelFor(x => x.Data.Name, "ФИО для отображения")
+          @Html.TextBoxFor(x => x.Data.Name, new { @class = "form-control", id = "driverFIO", placeholder = "Введите ФИО для отображения", required = "required" })
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          @Html.LabelFor(x => x.Data.DriverLicenceNumber, "Номер ВУ")
+          @Html.TextBoxFor(x => x.Data.DriverLicenceNumber, new { @class = "form-control", id = "driverLicenceNumber", placeholder = "Введите номер ВУ", required = "required" })
+        </div>
+        <div class="form-group">
+          @Html.LabelFor(x => x.Data.PhoneNumber, "Телефон")
+          @Html.TextBoxFor(x => x.Data.PhoneNumber, new { @class = "form-control form-control-tel", id = "driverPhone", placeholder = "+7(___) __-__-__", required = "required" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Data.UserLogin, "Логин")
+            @if (!string.IsNullOrEmpty(Model.Data.UserLogin))
+            {
+                @Html.TextBoxFor(x => x.Data.UserLogin, new {@class = "form-control", id = "driverLogin", placeholder = "Логин пользователя", @readonly = "readonly"})
+            }
+            else
+            {
+                @Html.TextBoxFor(x => x.Data.UserLogin, new { @class = "form-control", id = "driverLogin", placeholder = "Логин пользователя" })
+            }
+        </div>
+          @if (!string.IsNullOrEmpty(Model.Data.UserLogin)) //смена пароля только тогда, когда пользователь уже создан. иначе - создание
+          {
+              <div class="form-group">
+                  @Html.CheckBoxFor(x => x.Data.ChangePassword, new { @class = "icheck", id = "driverPassword" })
+                  @Html.LabelFor(x => x.Data.ChangePassword, "Сменить пароль")
+              </div>
+          }
+        <div class="form-group">
+            @Html.LabelFor(x => x.Data.UserPassword, "Пароль")
+            @Html.PasswordFor(x => x.Data.UserPassword, new { @class = "form-control", id = "driverPassword", placeholder = "Пароль пользователя" })
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <input type="submit" class="btn btn-success" value="Сохранить" />
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+  </div>
+}

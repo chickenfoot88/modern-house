@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="01/17/2018 23:41:22" ReportInfo.CreatorVersion="1.7.35.0">
+  <Dictionary>
+    <TableDataSource Name="Profitability" ReferenceName="NorthWind.CashFromDriver" DataType="System.Int32" Enabled="true">
+      <Column Name="DriverName" DataType="System.String"/>
+      <Column Name="CashSum" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Total Name="Total" Expression="[Profitability.CashSum]" Evaluator="Data1" PrintOn="ColumnFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="66.15" CanGrow="true">
+      <TextObject Name="Text1" Left="9.45" Top="9.45" Width="1048.95" Height="28.35" Text="Наличные у водителя" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 16pt, style=Bold"/>
+      <TextObject Name="Text2" Left="463.05" Top="37.8" Width="141.75" Height="18.9" Text="[RequestsPeriod]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <ChildBand Name="Child2" Top="70.15" Width="1047.06" Height="19" Guides="9.45">
+        <TextObject Name="Text18" Width="489.51" Height="18.9" Border.Lines="Right, Top, Bottom" Fill.Color="Gainsboro" Text="Водитель" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 9pt, style=Bold"/>
+        <TextObject Name="Text20" Left="489.6" Width="565.11" Height="18.9" Border.Lines="Right, Top, Bottom" Fill.Color="Gainsboro" Text="Сумма" VertAlign="Center" Font="Tahoma, 9pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="93.15" Width="1047.06" Height="18.9" Border.Lines="Left, Right, Bottom" Border.Width="0.5" CanGrow="true" DataSource="Profitability">
+      <TextObject Name="Text19" Width="489.51" Height="18.9" Border.Lines="Right, Bottom" Text="[Profitability.DriverName]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 9pt"/>
+      <TextObject Name="Text21" Left="491.4" Width="555.66" Height="18.9" Border.Lines="Right, Bottom" Text="[Profitability.CashSum]" VertAlign="Center" Font="Tahoma, 9pt"/>
+    </DataBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="116.05" Width="1047.06" Height="37.8"/>
+    <PageFooterBand Name="PageFooter1" Top="157.85" Width="1047.06" Height="56.7" Fill.Color="WhiteSmoke" CanGrow="true">
+      <TextObject Name="Text10" Left="954.45" Top="9.45" Width="94.5" Height="28.35" Text="[PageN]" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

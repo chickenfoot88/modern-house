@@ -1,0 +1,40 @@
+﻿@model Tbo.WebHost.Models.Registries.Schedules.SchedulesEditWindowModel<Domain.Registries.Schedules.Models.ScheduleSaveModel>
+
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("Create", "Schedules", FormMethod.Post, new AjaxOptions { HttpMethod = "POST" },  new { @class = "modal-content"}))
+{
+    <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Добавление записи</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Data.DateStr, "Дата")
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        @Html.TextBoxFor(x => x.Data.DateStr, "__.__.____", new { @class = "form-control pull-right datepicker", id = "schedule-date", required = "required" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Data.CarId, "Автомобиль")
+                    @Html.DropDownListFor(x => x.Data.CarId, Model.Stores.Cars, new { @class = "select form-control", required = "required" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Data.DriverId, "Водитель")
+                    @Html.DropDownListFor(x => x.Data.DriverId, Model.Stores.Drivers, new { @class = "select form-control", required = "required" })
+                </div>
+            </div>
+        </div>
+        <div class="hidden" id="hiddenEl"></div>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-success" value="Добавить"/>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+    </div>
+}

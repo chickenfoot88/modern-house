@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE8CEFB1-6356-481E-BC9A-2B929EE07465}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tbo.WebHost</RootNamespace>
+    <AssemblyName>Tbo.WebHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Tbo.WebHost.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Tbo.WebHost.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastReport">
+      <HintPath>..\..\Libraries\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars">
+      <HintPath>..\..\Libraries\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Web">
+      <HintPath>..\..\Libraries\FastReport.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql.EntityFramework, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Npgsql.EntityFramework.2.2.7\lib\net45\Npgsql.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.0.8\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.4.0.8\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.4.0.8\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.4.0.8\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Packaging, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Packaging.4.0.8\lib\net40\SimpleInjector.Packaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\JsonConverterConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="Attributes\SwaggerSuccessResponseAttribute.cs" />
+    <Compile Include="Controllers\Api\Common\BaseApiController.cs" />
+    <Compile Include="Controllers\Api\Dictionaries\CarApiController.cs" />
+    <Compile Include="Controllers\Api\Dictionaries\ContainerTypeApiController.cs" />
+    <Compile Include="Controllers\Api\Dictionaries\PolygonApiController.cs" />
+    <Compile Include="Controllers\Api\Dictionaries\DriverApiController.cs" />
+    <Compile Include="Controllers\Api\Dictionaries\CustomerApiController.cs" />
+    <Compile Include="Controllers\Api\Dictionaries\ContainerApiController.cs" />
+    <Compile Include="Controllers\Api\File\FileApiController.cs" />
+    <Compile Include="Controllers\Api\Registries\SchedulesApiController.cs" />
+    <Compile Include="Controllers\Api\Registries\RequestApiController.cs" />
+    <Compile Include="Controllers\Api\Registries\MonitoringsApiController.cs" />
+    <Compile Include="Controllers\Api\Registries\WaybillsApiController.cs" />
+    <Compile Include="Controllers\MobileApi\Account\AccountController.cs" />
+    <Compile Include="Controllers\MobileApi\Common\CommonController.cs" />
+    <Compile Include="Controllers\MobileApi\Requests\RequestApiController.cs" />
+    <Compile Include="Controllers\MVC\AccountController.cs" />
+    <Compile Include="Controllers\MVC\Common\BaseController.cs" />
+    <Compile Include="Controllers\MVC\Domain\CarContainerTypesController.cs" />
+    <Compile Include="Controllers\MVC\Domain\CarsController.cs" />
+    <Compile Include="Controllers\MVC\Domain\SchedulesController.cs" />
+    <Compile Include="Controllers\MVC\Domain\RequestsController.cs" />
+    <Compile Include="Controllers\MVC\Domain\ContainerTypesController.cs" />
+    <Compile Include="Controllers\MVC\Domain\ContainersController.cs" />
+    <Compile Include="Controllers\MVC\Domain\CarsMonitoringController.cs" />
+    <Compile Include="Controllers\MVC\Domain\CustomersController.cs" />
+    <Compile Include="Controllers\MVC\Domain\ContainersMonitoringController.cs" />
+    <Compile Include="Controllers\MVC\Domain\DriversController.cs" />
+    <Compile Include="Controllers\MVC\Domain\HomeController.cs" />
+    <Compile Include="Controllers\MVC\Domain\PolygonsController.cs" />
+    <Compile Include="Controllers\MVC\Domain\WaybillsController.cs" />
+    <Compile Include="Controllers\MVC\Report\ReportsController.cs" />
+    <Compile Include="Extensions\DropDownListStoreExtensions.cs" />
+    <Compile Include="Filters\SwaggerMobileDocumentFilter.cs" />
+    <Compile Include="Filters\SwaggerOperationResponsesFilter.cs" />
+    <Compile Include="Filters\WebApiExceptionFilter.cs" />
+    <Compile Include="Models\Dictionaries\Containers\ContainerEditWindowModel.cs" />
+    <Compile Include="Models\Dictionaries\Drivers\DriverEditWindowModel.cs" />
+    <Compile Include="Models\Registries\Requests\RequestEditWindowModel.cs" />
+    <Compile Include="Models\Registries\Requests\RequestsIndexModel.cs" />
+    <Compile Include="Models\Registries\Schedules\SchedulesEditWindowModel.cs" />
+    <Compile Include="Models\Registries\Waybills\WaybillsRequestsEditWindowModel.cs" />
+    <Compile Include="Models\Registries\Waybills\WaybillsEditWindowModel.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\custom.min.css" />
+    <Content Include="Content\img\favicon\apple-touch-icon-114x114.png" />
+    <Content Include="Content\img\favicon\apple-touch-icon-72x72.png" />
+    <Content Include="Content\img\favicon\apple-touch-icon.png" />
+    <Content Include="Content\img\favicon\favicon.ico" />
+    <Content Include="Content\img\icons\container.png" />
+    <Content Include="Content\img\icons\map\conv30.png" />
+    <Content Include="Content\img\icons\map\conv40.png" />
+    <Content Include="Content\img\icons\map\conv50.png" />
+    <Content Include="Content\img\icons\map\heart30.png" />
+    <Content Include="Content\img\icons\map\heart40.png" />
+    <Content Include="Content\img\icons\map\heart50.png" />
+    <Content Include="Content\img\icons\map\m1.png" />
+    <Content Include="Content\img\icons\map\m2.png" />
+    <Content Include="Content\img\icons\map\m3.png" />
+    <Content Include="Content\img\icons\map\m4.png" />
+    <Content Include="Content\img\icons\map\m5.png" />
+    <Content Include="Content\img\icons\map\people35.png" />
+    <Content Include="Content\img\icons\map\people45.png" />
+    <Content Include="Content\img\icons\map\people55.png" />
+    <Content Include="Content\img\icons\map\pin.png" />
+    <Content Include="Content\img\loader.gif" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\minimal%402x.png" />
+    <Content Include="Content\img\minimal.png" />
+    <Content Include="Content\img\no_photo_big.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Fonts\glyphicon\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="SwaggerExtensions\addBearerAuth.js" />
+    <Content Include="Content\img\favicon\Thumbs.db" />
+    <Content Include="Fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="Fonts\glyphicon\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicon\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicon\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicon\glyphicons-halflings-regular.woff2" />
+    <Content Include="Fonts\RobotoBold\RobotoBold.eot" />
+    <Content Include="Fonts\RobotoBold\RobotoBold.ttf" />
+    <Content Include="Fonts\RobotoBold\RobotoBold.woff" />
+    <Content Include="Fonts\RobotoRegular\RobotoRegular.eot" />
+    <Content Include="Fonts\RobotoRegular\RobotoRegular.ttf" />
+    <Content Include="Fonts\RobotoRegular\RobotoRegular.woff" />
+    <Content Include="Scripts\libs.min.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\scripts.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\Containers\Index.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Drivers\Index.cshtml" />
+    <Content Include="Views\CarsMonitoring\Index.cshtml" />
+    <Content Include="Views\Polygons\Index.cshtml" />
+    <Content Include="Views\Waybills\Index.cshtml" />
+    <Content Include="Views\Shared\_SidebarPartial.cshtml" />
+    <Content Include="Views\Shared\_HeaderPatial.cshtml" />
+    <Content Include="Views\ContainersMonitoring\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cars\Partial\Create.cshtml" />
+    <Content Include="Views\Waybills\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Reports\App_LocalResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.DataAccess\Core.DataAccess.csproj">
+      <Project>{a0030367-14fd-4109-b9e7-eea2e5d70ba8}</Project>
+      <Name>Core.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Identity.OAuth\Core.Identity.OAuth.csproj">
+      <Project>{6c373789-adf6-484f-8b58-92e44563557e}</Project>
+      <Name>Core.Identity.OAuth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Identity\Core.Identity.csproj">
+      <Project>{f8d47f33-87a6-40dc-a70a-f28d80e5bef3}</Project>
+      <Name>Core.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core\Core.csproj">
+      <Project>{1857410c-0945-44cb-b0fb-c647187989ff}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\DAL.EF\DAL.EF.csproj">
+      <Project>{94b39b97-5dc6-485a-80b1-310bc496f579}</Project>
+      <Name>DAL.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Core\Domain.Core.csproj">
+      <Project>{33d053f8-76b9-467e-bf9e-79a545680af6}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Dictionary\Domain.Dictionary.csproj">
+      <Project>{80fba2c5-1e1a-451f-9eb6-45c5dc8db2d3}</Project>
+      <Name>Domain.Dictionary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.MobileApi\Domain.MobileApi.csproj">
+      <Project>{22b3cf37-f8d6-41e4-9223-def7331de70d}</Project>
+      <Name>Domain.MobileApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Registries\Domain.Registries.csproj">
+      <Project>{33feb7df-3b3e-428a-8c72-e153275dba17}</Project>
+      <Name>Domain.Registries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FileManager\FileManager.Core\FileManager.Core.csproj">
+      <Project>{6a45da36-ada3-440a-afa6-bedd77a9946c}</Project>
+      <Name>FileManager.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FileManager\FileManager.FileSystem\FileManager.FileSystem.csproj">
+      <Project>{3d67c34b-b4f3-497a-99f0-233c25c94847}</Project>
+      <Name>FileManager.FileSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\Error.html" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\ContainerTypes\Index.cshtml" />
+    <Content Include="Views\Customers\Partial\Create.cshtml" />
+    <Content Include="Views\Customers\Partial\Edit.cshtml" />
+    <Content Include="Views\Requests\Partial\Create.cshtml" />
+    <Content Include="Views\Requests\Partial\Edit.cshtml" />
+    <Content Include="Views\ContainerTypes\Partial\Create.cshtml" />
+    <Content Include="Views\ContainerTypes\Partial\Edit.cshtml" />
+    <Content Include="Views\Containers\Partial\Create.cshtml" />
+    <Content Include="Views\Containers\Partial\Edit.cshtml" />
+    <Content Include="Views\Drivers\Partial\Create.cshtml" />
+    <Content Include="Views\Drivers\Partial\Edit.cshtml" />
+    <Content Include="Views\Polygons\Partial\Create.cshtml" />
+    <Content Include="Views\Polygons\Partial\Edit.cshtml" />
+    <Content Include="Views\Waybills\Partial\Create.cshtml" />
+    <Content Include="Views\Waybills\Partial\CreateWaybillRequest.cshtml" />
+    <Content Include="Views\Cars\Edit.cshtml" />
+    <Content Include="Views\CarContainerTypes\Partial\Create.cshtml" />
+    <Content Include="Views\CarContainerTypes\Partial\Edit.cshtml" />
+    <Content Include="Views\CarContainerTypes\List.cshtml" />
+    <Content Include="Views\Schedules\Index.cshtml" />
+    <Content Include="Views\Schedules\Partial\Create.cshtml" />
+    <Content Include="Views\Schedules\Partial\Edit.cshtml" />
+    <Content Include="Views\Schedules\Partial\List.cshtml" />
+    <Content Include="Reports\Localization\Russian.frl" />
+    <Content Include="Views\Reports\Profitability.cshtml" />
+    <Content Include="Reports\Templates\Profitability.frx" />
+    <Content Include="Reports\Templates\RequestsByCustomer.frx" />
+    <Content Include="Views\Reports\RequestsByCustomer.cshtml" />
+    <Content Include="Reports\Templates\RequestsSumsByCustomer.frx" />
+    <Content Include="Views\Reports\RequestsSumsByCustomer.cshtml" />
+    <Content Include="Views\Requests\Partial\Copy.cshtml" />
+    <Content Include="Reports\Templates\CashFromDriver.frx" />
+    <Content Include="Views\Reports\CashFromDriver.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31690</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:31690/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

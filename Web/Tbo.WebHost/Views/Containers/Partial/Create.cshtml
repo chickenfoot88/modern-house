@@ -1,0 +1,82 @@
+﻿@model Tbo.WebHost.Models.Dictionaries.Containers.ContainerEditWindowModel<Domain.Dictionary.Containers.Models.ContainerSaveModel>
+
+@{
+  Layout = null;
+}
+
+@using (Ajax.BeginForm("Post", "ContainerApi", FormMethod.Post, new AjaxOptions { HttpMethod = "POST" },  new { @class = "modal-content"}))
+{
+  @Html.HiddenFor(x => x.Data.PositionLatitude, new { id = "containerLatitude", @class = "markerLatitude" })
+  @Html.HiddenFor(x => x.Data.PositionLongitude, new { id = "containerLongitude", @class = "markerLongitude" })
+  <div class="modal-header">
+    <h4 class="modal-title" id="exampleModalLabel">Добавление контейнера</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="form-group">
+              @Html.LabelFor(x => x.Data.ContainerTypeId, "Тип контейнера")
+              @Html.DropDownListFor(x => x.Data.ContainerTypeId, Model.Stores.ContainerTypes, new
+              {
+                @class= "select form-control",
+                required = "required",
+                @onchange = string.Format( @"var id = this.value;
+                $.ajax({{
+                  type: 'GET',
+                  url: '{0}' + id,
+                  data: null,
+                  success: function (result) {{
+                    if(result && result.Data && result.Data.Capacity){{
+                      $('#containerTypeCapacity').val(result.Data.Capacity);
+                    }}
+                    else {{
+                      $('#containerTypeCapacity').val(null);
+                    }}
+                  }}
+                }});", Url.Content("/api/containertypes/"))
+              })
+            </div>
+            <div class="form-group">
+              @Html.Label("containerTypeCapacity", "Емкость")
+              @Html.TextBox("containerTypeCapacity", "", new { @class = "form-control", @readonly = "readonly", id = "containerTypeCapacity" })
+            </div>
+            <div class="form-group">
+              @Html.LabelFor(x => x.Data.Address, "Адрес")
+              @Html.TextBoxFor(x => x.Data.Address, "", new { @class= "form-control marker-address", id = "container-address", placeholder = "Введите адрес контейнера", required = "required", })
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              @Html.LabelFor(x => x.Data.Status, "Статус")
+              @Html.DropDownListFor(x => x.Data.Status, Model.Stores.ContainerStatuses, new { @class = "select form-control", required = "required", })
+            </div>
+            <div class="form-group">
+              @Html.LabelFor(x => x.Data.Description, "Описание")
+              @Html.TextAreaFor(x => x.Data.Description, new { @class = "form-control", placeholder = "Введите описание..." })
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+        <div id="container-map" class="map-container"></div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <input type="submit" class="btn btn-success" value="Добавить">
+    <button type="button" class="btn btn-secondary cancel-btn" data-dismiss="modal">Отмена</button>
+  </div>
+}

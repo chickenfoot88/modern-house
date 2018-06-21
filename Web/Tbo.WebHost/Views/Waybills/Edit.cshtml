@@ -1,0 +1,72 @@
+﻿@using Core.Extensions
+@model Domain.Registries.Waybills.Models.WaybillGetModel
+@{
+    ViewBag.Title = "Редактирование";
+}
+
+<div class="wrapper">
+
+  @Html.Partial("_HeaderPatial")
+
+  @Html.Partial("_SidebarPartial")
+
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="callout callout-info callout-info-custom">
+        <h4>Автомобиль: @Model.Car.Name</h4>
+
+        <p>Дата: @Model.WaybillDate</p>
+      </div>
+    </section>
+
+    <section class="content fixed">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              @Html.ActionLink("Добавить заявку", "CreateWaybillRequest", new {waybillId = Model.Id}, new {@class = "btn btn-primary create-button", type = "button"})
+              <a href="@Url.Action("Index", "Waybills")" class="btn btn-success">Маршрутные листы</a>
+            </div>
+            <div class="box-body">
+              <table class="table table-hover table-bordered data-table">
+                <thead>
+                  <tr>
+                    <th class="order-cell">Приоритет</th>
+                    <th>Заявка</th>
+                    <th>Статус</th>
+                    <th class="edit-cell"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach (var dto in Model.WaybillRequests)
+                  {
+                    <tr>
+                      <td>@dto.OrdinalNumber</td>
+                      <td>@(dto.Request?.Address ?? "-") </td>
+                      <th>@(dto.Request?.RequestStatus.GetDescription() ?? "-")</th>
+                      <td class="edit-cell">
+                        <button href="@Url.Action("Delete", new { id = dto.Id })" elementId="@dto.Id" id="waybillRequestDelete" class="btn btn-danger delete-button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <footer class="main-footer"></footer>
+
+</div>
+
+<div class="modal fade modal-window" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small" id="dialogContent">
+  </div>
+</div>

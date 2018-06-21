@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "График работ";
+}
+<div class="wrapper">
+    @Html.Partial("_HeaderPatial")
+    @Html.Partial("_SidebarPartial")
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>График работ</h1>
+        </section>
+        <section class="content">
+            @Html.Action("List", "Schedules")
+        </section>
+    </div>
+    <footer class="main-footer"></footer>
+</div>
+
+
+<div class="modal fade modal-window" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small" id="dialogContent">
+  </div>
+</div>

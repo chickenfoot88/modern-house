@@ -1,0 +1,28 @@
+﻿@model List<SelectListItem>
+@{
+  Layout = null;
+}
+
+@using (Html.BeginForm("Create", "CarContainerTypes", FormMethod.Post, new { @class = "modal-content"}))
+{
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title" id="exampleModalLabel">Добавление типа контейнера</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            @Html.Label("containerTypeId", "Тип контейнера")
+            @*<label for="">Тип контейнера</label>*@
+            @Html.DropDownList("containerTypeId", Model, new {@class = "select form-control"})
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class="btn btn-success" value="Добавить" />
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+    </div>
+  </div>
+}

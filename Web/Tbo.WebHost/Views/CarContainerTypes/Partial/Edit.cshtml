@@ -1,0 +1,42 @@
+﻿@using Core.Extensions
+@using Domain.Dictionary.Cars.Enums
+@model Domain.Dictionary.Cars.Models.CarSaveModel
+
+@{
+  Layout = null;
+  var serviceabilityValuesList = Enum
+  .GetValues(typeof(CarServiceability))
+  .Cast<CarServiceability>()
+    .Select(x => new SelectListItem {Text = x.GetDescription(), Value = x.ToString()});
+  }
+
+  @using (Ajax.BeginForm("Create", "Cars", FormMethod.Post, new AjaxOptions { HttpMethod = "POST" },  new { @class = "modal-content"}))
+  {
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+      <h4 class="modal-title" id="exampleModalLabel">Добавить автомобиль</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            @Html.LabelFor(x => x.Mark, "Марка")
+            @Html.TextBoxFor(x => x.Mark, new { @class = "form-control", id = "carBrand", placeholder = "Введите марку автомобиля", })
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(x => x.Number, "Номер")
+            @Html.TextBoxFor(x => x.Number, new {@class = "form-control", id = "carNumber", placeholder = "Введите номер автомобиля"})
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(x => x.Serviceability, "Исправность")
+            @Html.DropDownListFor(x => x.Serviceability, serviceabilityValuesList, new {@class = "select form-control"})
+          </div>
+        </div>
+      </div>
+      <div class="hidden" id="hiddenEl"></div>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class="btn btn-success" value="Добавить"/>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+    </div>
+  }

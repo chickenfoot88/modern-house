@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/03/2018 10:11:48" ReportInfo.Modified="03/02/2018 23:20:24" ReportInfo.CreatorVersion="1.7.35.0">
+  <Dictionary>
+    <TableDataSource Name="ReportData" ReferenceName="ReportDataSet.ReportData" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.String"/>
+      <Column Name="CustomerName" DataType="System.String"/>
+      <Column Name="Address" DataType="null"/>
+      <Column Name="DayNumber" DataType="System.Int32"/>
+      <Column Name="RequestsCount" DataType="System.Int32"/>
+      <Column Name="RequestsSum" DataType="System.Decimal"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="47.25">
+      <TextObject Name="Text1" Left="387.45" Top="9.45" Width="292.95" Height="28.35" Text="Заявки по заказчикам" HorzAlign="Center" Font="Tahoma, 14.25pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="51.25" Width="1047.06" Height="66.15">
+      <TextObject Name="Text2" Left="463.05" Top="9.45" Width="132.3" Height="18.9" Text="[RequestsPeriod]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text5" Left="9.45" Top="28.35" Width="264.6" Height="37.8" Text="Итого заявок: [RequestsTotalCount]&#13;&#10;Итого сумма: [RequestsTotalSum]"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="121.4" Width="1047.06" Height="160.65">
+      <MatrixObject Name="Matrix1" Top="18.9" Width="341.13" Height="54.08" Border.Lines="All" FixedRows="1" FixedColumns="2" DataSource="ReportData">
+        <MatrixColumns>
+          <Header Expression="[ReportData.DayNumber]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[ReportData.CustomerName]" Totals="false"/>
+          <Header Expression="[ReportData.Address]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[ReportData.RequestsCount]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" MaxWidth="113.4" Width="113.4" AutoSize="true"/>
+        <TableColumn Name="Column2" MaxWidth="113.4" Width="67.45" AutoSize="true"/>
+        <TableColumn Name="Column3" Width="111.73" AutoSize="true"/>
+        <TableColumn Name="Column4" Width="48.55" AutoSize="true"/>
+        <TableRow Name="Row1" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Fill.Color="Gainsboro" Text="Заказчик" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Fill.Color="Gainsboro" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell7" Border.Lines="All" Fill.Color="Gainsboro" Text="[DayNumber]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell9" Border.Lines="All" Fill.Color="Gainsboro" Text="Итого" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="34.52" AutoSize="true">
+          <TableCell Name="Cell3" Border.Lines="All" Text="[CustomerName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9.75pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[Address]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="[RequestsCount]" HideZeros="true" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell10" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 9.75pt, style=Bold"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="286.05" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+</Report>

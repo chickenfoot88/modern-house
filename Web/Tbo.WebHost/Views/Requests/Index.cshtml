@@ -1,0 +1,156 @@
+﻿@model Tbo.WebHost.Models.Registries.Requests.RequestsIndexModel
+@{
+    ViewBag.Title = "Заявки";
+}
+<div class="wrapper">
+    @Html.Partial("_HeaderPatial")
+    @Html.Partial("_SidebarPartial")
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box date-filter">
+                    <div class="box-header">
+                        @Html.ActionLink("Добавить заявку", "Create", new { }, new { @class = "btn btn-primary create-button", type = "button" })
+
+                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+                            <span class="glyphicon glyphicon-cog"></span> Расширенный поиск
+                        </button>
+                    </div>
+
+                    <div id="filter-panel" class="collapse filter-panel">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form class="form-inline" role="form">
+                                    <div class="row">
+
+                                        <div class="form-group col-md-2">
+                                            <div class="input-group date" style="width:100%">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input class="form-control pull-right dateRangePicker" id="dateRangePicker" type="text" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <input type="text" style="width:100%;" class="form-control input-sm" id="addressFilter" placeholder="Адрес..">
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <input type="text" style="width:100%;" class="form-control input-sm" id="contactPersonPhoneFilter" placeholder="Телефон..">
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <select id="isPaidFilter" style="width:100%;" class="form-control">
+                                                <option value="" disabled selected>Опл/не опл</option>
+                                                @foreach (var item in Model.FilterStores.IsPaids)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <select id="requestStatusFilter" style="width:100%;" class="form-control">
+                                                <option value="" disabled selected>Статус</option>
+                                                @foreach (var item in Model.FilterStores.RequestStatuses)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <select id="requestTypeFilter" style="width:100%;" class="form-control">
+                                                <option value="" disabled selected>Тип заявки</option>
+                                                @foreach (var item in Model.FilterStores.RequestTypes)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <select id="containerTypeFilter" style="width:100%;" class="form-control">
+                                                <option value="" disabled selected>Контейнер</option>
+                                                <option value="-1">Малые (6,8)</option>
+                                                <option value="-2">Большие (более 8)</option>
+                                                @foreach (var item in Model.FilterStores.ContainerTypes)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <input type="text" style="width:100%;" class="form-control input-sm" id="customerFilter" placeholder="Заказчик..">
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <select id="carFilter" style="width:100%;" class="form-control">
+                                                <option value="" disabled selected>Автомобиль</option>
+                                                @foreach (var item in Model.FilterStores.Cars)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <select id="driverFilter" style="width:100%;" class="form-control">
+                                                <option value="" disabled selected>Водитель</option>
+                                                @foreach (var item in Model.FilterStores.Drivers)
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:10px">
+
+                                        <div class="form-group col-md-1">
+                                            <input type="number" min="1" style="width:100%;" class="form-control input-sm" id="requestIdFilter" placeholder="Номер заявки..">
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <button style="width:100%;" class="btn btn-default filter-col applyFilterButton">
+                                                Применить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <table class="table table-hover table-bordered table-requests requests-table">
+                            <thead>
+                                <tr>
+                                    @*<th style="display:none;">№</th>*@
+                                    <th>Дата заявки</th>
+                                    <th>Адрес</th>
+                                    <th>Телефон контакт&shy;ного лица</th>
+                                    <th>Оп&shy;ла&shy;че&shy;но</th>
+                                    <th>Статус</th>
+                                    <th>Тип</th>
+                                    <th>Тип контей&shy;нера</th>
+                                    <th>Заказчик</th>
+                                    <th>Авто</th>
+                                    <th>Водитель</th>
+                                    <th class="edit-cell edit-cell-3"></th>
+                                </tr>
+                            </thead>
+                            @*<tbody></tbody>*@
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer"></footer>
+</div>
+<div class="modal fade modal-window" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-large" id="dialogContent">
+    </div>
+</div>

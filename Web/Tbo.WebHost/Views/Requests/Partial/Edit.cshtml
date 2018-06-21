@@ -1,0 +1,231 @@
+﻿@using Core.Extensions
+@using Domain.Registries.Requests.Enums
+@model Tbo.WebHost.Models.Registries.Requests.RequestEditWindowModel<Domain.Registries.Requests.Models.RequestGetModel>
+
+@{
+  Layout = null;
+}
+
+@using (Ajax.BeginForm("Edit", "Requests", FormMethod.Post, new AjaxOptions { HttpMethod = "POST" },  new { @class = "modal-content", id= "customer-edit-form" }))
+{
+  @Html.HiddenFor(x => x.Data.Id)
+    @Html.HiddenFor(x => x.Data.PositionLatitude, new { id = "containerLatitude", @class = "markerLatitude" })
+    @Html.HiddenFor(x => x.Data.PositionLongitude, new { id = "containerLongitude", @class = "markerLongitude" })
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="exampleModalLabel">Редактирование заявки</h4>
+  </div>
+
+  <div class="modal-body">
+
+      <div class="row">
+          <div class="col-md-6">
+              <div class="row">
+                  <div class="col-md-5">
+                      <div class="form-group">
+                          @Html.CheckBoxFor(x => x.Data.IsPaid, new { @class = "icheck", id = "Data_IsPaid" })
+                          @Html.LabelFor(x => x.Data.IsPaid, "Оплачено")
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.ContainerId, "Контейнер")
+                          @Html.DropDownListFor(x => x.Data.ContainerId, Model.Stores.Containers, new { id = "containerTypeCapacity", @class = "select form-control" })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.CarId, "Автомобиль")
+                          @Html.DropDownListFor(x => x.Data.CarId, Model.Stores.Cars, new { @class = "select form-control" })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.DriverId, "Водитель")
+                          @Html.DropDownListFor(x => x.Data.DriverId, Model.Stores.Drivers, new { @class = "select form-control" })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Sum, "Сумма")
+                          @Html.TextBoxFor(x => x.Data.Sum, new { @class = "form-control", id = "claimSum", placeholder = "Введите сумму заявки" })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Status, "Статус")
+                          @Html.DropDownListFor(x => x.Data.Status, Model.Stores.RequestStatuses, new { @class = "select form-control" })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Type, "Тип")
+                          @Html.DropDownListFor(x => x.Data.Type, Model.Stores.RequestTypes, new { @class = "select form-control" })
+                      </div>
+
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Status, "Полигон")
+                          @Html.DropDownListFor(x => x.Data.PolygonId, Model.Stores.Polygons, new { @class = "select form-control" })
+                      </div>
+
+                      <div class="form-group form-group_no-label">
+                          @Html.RadioButtonFor(x => x.Data.PaymentType, PaymentType.Cash, new { @class = "icheck" })
+                          @Html.LabelFor(x => x.Data.PaymentType, PaymentType.Cash.GetDescription())
+                          <br>
+                          @Html.RadioButtonFor(x => x.Data.PaymentType, PaymentType.NonCash, new { @class = "icheck" })
+                          @Html.LabelFor(x => x.Data.PaymentType, PaymentType.NonCash.GetDescription())
+                          <br>
+                          @Html.RadioButtonFor(x => x.Data.PaymentType, PaymentType.Transfer, new { @class = "icheck" })
+                          @Html.LabelFor(x => x.Data.PaymentType, PaymentType.Transfer.GetDescription())
+                      </div>
+                  </div>
+                  <div class="col-md-7">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  @Html.LabelFor(x => x.Data.CreateDate, "Дата создания") <div class="input-group date">
+                                      <div class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                      </div>
+                                      @Html.TextBoxFor(x => x.Data.CreateDate, new { @class = "form-control pull-right datepicker", id = "create-date", @readonly = "readonly" })
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  @Html.LabelFor(x => x.Data.PlannedDate, "Дата заявки")
+                                  <div class="input-group date">
+                                      <div class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                      </div>
+                                      @Html.TextBoxFor(x => x.Data.PlannedDate, new { @class = "form-control pull-right datepicker", id = "set-date", required = "required" })
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  @Html.LabelFor(x => x.Data.PlannedDate, "Планируемая дата забора")
+                                  <div class="input-group date">
+                                      <div class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                      </div>
+                                      @Html.TextBoxFor(x => x.Data.PlannedUninstallDate, new { @class = "form-control  datepicker", id = "set-date"})
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  @Html.LabelFor(x => x.Data.ExecutionDate, "Дата выполнения")
+                                  <div class="input-group date">
+                                      <div class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                      </div>
+                                      @Html.TextBoxFor(x => x.Data.ExecutionDate, Model.Data.ExecutionDate, new { @class = "form-control pull-right datepicker", id = "create-date" })
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.CustomerId, "Заказчик")
+                          @Html.DropDownListFor(x => x.Data.CustomerId, Model.Stores.Customers, new
+                    {
+                        @class = "select form-control claim-customer",
+                        @onchange = string.Format(@"var id = this.value;
+            $.ajax({{
+              type: 'GET',
+              url: '{0}' + id,
+              data: null,
+              success: function (result) {{
+
+                  //даем заполнять только когда ручной ввод
+                  $('#customerPhone').prop('readonly', id != 0);
+                  $('#customerName').prop('readonly', id != 0);
+
+                  if(result && result.Data && result.Data.ContactPersonPhone){{
+                    $('#customerPhone').val(result.Data.Phone);
+
+                    $('#customerName').val(result.Data.Name);
+
+                    $('#customerAddress').val(result.Data.Address);
+                    $('#customerContactPerson').val(result.Data.ContactPersonName);
+                    $('#customerContactPersonPhone').val(result.Data.ContactPersonPhone);
+
+                    $('#containerLatitude').val(result.Data.PositionLatitude);
+                    $('#containerLongitude').val(result.Data.PositionLongitude);
+
+                    initMap();
+                  }}
+                  else {{
+                    $('#customerPhone').val(null);
+
+                    $('#customerName').val(null);
+
+                    $('#customerAddress').val(null);
+                    $('#customerContactPerson').val(null);
+                    $('#customerContactPersonPhone').val(null);
+
+                    $('#containerLatitude').val(null);
+                    $('#containerLongitude').val(null);
+
+                    initMap();
+                  }}
+              }}
+            }});", Url.Content("/api/customers/"))
+                    })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Customer.Name, "Наименование заказчика")
+                          @if (Model.Data.CustomerId != null)
+                    {
+                      @Html.TextBoxFor(x => x.Data.CustomerName, new { @class = "form-control", id = "customerName", required = "required", @readonly = "readonly" })
+            }
+            else
+            {
+              @Html.TextBoxFor(x => x.Data.CustomerName, new { @class = "form-control", id = "customerName", required = "required" })
+    }
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Customer.Phone, "Телефон")
+                          @if (Model.Data.CustomerId != null)
+                    {
+                      @Html.TextBoxFor(x => x.Data.CustomerPhone, new { @class = "form-control form-control-tel", id = "customerPhone", placeholder = "+7(___)  __-__-__", @readonly = "readonly" })
+            }
+            else
+            {
+              @Html.TextBoxFor(x => x.Data.CustomerPhone, new { @class = "form-control form-control-tel", id = "customerPhone", placeholder = "+7(___)  __-__-__" })
+    }
+                      </div>
+
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.Address, "Адрес")
+                          @Html.TextBoxFor(x => x.Data.Address, new { @class = "form-control marker-address", id = "customerAddress", placeholder = "Введите адрес заявки", required = "required" })
+                      </div>
+
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.ContactPersonName, "Контактное лицо")
+                          @Html.TextBoxFor(x => x.Data.ContactPersonName, new { @class = "form-control", id = "customerContactPerson", placeholder = "Введите имя контактного лица" })
+                      </div>
+                      <div class="form-group">
+                          @Html.LabelFor(x => x.Data.ContactPersonPhone, "Номер телефона контактного лица")
+                          @Html.TextBoxFor(x => x.Data.ContactPersonPhone, new { @class = "form-control form-control-tel", id = "customerContactPersonPhone", placeholder = "+7(___)  __-__-__" })
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+              <div id="request-map" class="map-container"></div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                      @Html.LabelFor(x => x.Data.Comment, "Комментарий")
+                      @Html.TextAreaFor(x => x.Data.Comment, new { @class = "form-control", id = "request-comment", placeholder = "Введите комментарий...", rows = "2" })
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <input type="submit" class="btn btn-success" value="Сохранить">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+  </div>
+}

@@ -1,0 +1,42 @@
+﻿@model Tbo.WebHost.Models.Registries.Waybills.WaybillsEditWindowModel<Domain.Registries.Waybills.Models.WaybillSaveModel>
+@{
+    Layout = null;
+}
+@using (Ajax.BeginForm("Create", "Waybills", FormMethod.Post, new AjaxOptions { HttpMethod = "POST" }, new { @class = "modal-content" }))
+{
+    <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Добавление маршрута</h4>
+    </div>
+
+    <div class="modal-body">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Data.Date, "Дата")
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        @Html.TextBoxFor(x => x.Data.Date, "__.__.____", new { @class = "form-control pull-right datepicker", required = "required"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Data.CarId, "Автомобиль")
+                    @Html.DropDownListFor(x => x.Data.CarId, Model.Stores.Cars, new { @class = "select form-control", required = "required" })
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-success" value="Добавить">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+    </div>
+}

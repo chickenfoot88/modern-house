@@ -1,0 +1,128 @@
+﻿@{
+    var dictMenuItems = new[]
+    {
+    "Customers",
+    "Containers",
+    "ContainerTypes",
+    "Cars",
+    "Drivers",
+    "Polygons"
+  };
+
+    var claimsMenuItems = new[]
+    {
+    "Requests",
+    "Waybills",
+    "Schedules"
+  };
+
+    var monitoringMenuItems = new[]
+    {
+    "ContainersMonitoring",
+    "CarsMonitoring"
+  };
+
+    var reportsMenuItems = new[]
+    {
+    "Profitability"
+  };
+
+    var isAdvancedAccess = User?.IsInRole("Director") ?? User?.IsInRole("Dispatcher") ?? false;
+
+    var controllerName = ViewBag.ControllerName as string ?? "";
+}
+<aside class="main-sidebar">
+
+  <section class="sidebar" style="height: auto;">
+
+    <ul class="sidebar-menu tree" data-widget="tree">
+
+
+        <li class="treeview @(dictMenuItems.Contains(controllerName) ? "active menu-open": "")">
+          <a href="#">
+            <i class="fa fa-book"></i> <span>Справочники</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+
+            <li class="@(controllerName == "Customers" ? "active" : "")">
+              <a href="@Url.Action("Index","Customers")"><i class="fa fa-bell" aria-hidden="true"></i> Заказчики</a>
+            </li>
+            <li class="@(controllerName == "Containers" ? "active" : "")">
+              <a href="@Url.Action("Index","Containers")"><i class="fa fa-trash" aria-hidden="true"></i> Контейнеры</a>
+            </li>
+            <li class="@(controllerName == "Cars" ? "active" : "")">
+              <a href="@Url.Action("Index","Cars")"><i class="fa fa-truck" aria-hidden="true"></i> Автомобили</a>
+            </li>
+            <li class="@(controllerName == "Drivers" ? "active" : "")">
+              <a href="@Url.Action("Index","Drivers")"><i class="fa fa-user" aria-hidden="true"></i> Водители</a>
+            </li>
+            <li class="@(controllerName == "Polygons" ? "active" : "")">
+              <a href="@Url.Action("Index","Polygons")"><i class="fa fa-map-marker" aria-hidden="true"></i> Полигоны</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="treeview @(claimsMenuItems.Contains(controllerName) ? "active menu-open": "")">
+          <a href="#">
+            <i class="fa fa-tasks"></i> <span>Заявки</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@(controllerName == "Requests" ? "active" : "")">
+                <a href="@Url.Action("Index","Requests")"><i class="fa fa-list"></i> Реестр заявок</a>
+            </li>
+            <li class="@(controllerName == "Waybills" ? "active" : "")">
+                <a href="@Url.Action("Index","Waybills")"><i class="fa fa-road"></i> Маршрутные листы</a>
+            </li>
+            @*<li class="@(controllerName == "Schedules" ? "active" : "")">
+                <a href="@Url.Action("Index","Schedules")"><i class="fa fa-calendar-o"></i> График работ</a>
+            </li>*@
+          </ul>
+        </li>
+
+          <li class="treeview @(monitoringMenuItems.Contains(controllerName) ? "active menu-open": "")">
+            <a href="#">
+              <i class="fa fa-tv"></i> <span>Мониторинг</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="@(controllerName == "ContainersMonitoring" ? "active" : "")">
+                <a href="@Url.Action("Index","ContainersMonitoring")"><i class="fa fa-trash"></i> Контейнеров</a>
+              </li>
+              <li class="@(controllerName == "CarsMonitoring" ? "active" : "")">
+                <a href="@Url.Action("Index","CarsMonitoring")"><i class="fa fa-truck"></i> Автомобилей</a>
+              </li>
+            </ul>
+          </li>
+
+        @if (isAdvancedAccess)
+        {
+            <li class="treeview @(reportsMenuItems.Contains(controllerName) ? "active menu-open": "")">
+                <a href="#">
+                    <i class="fa fa-line-chart"></i> <span>Отчеты</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="@Url.Action("Profitability","Reports")"><i class="fa fa-calculator"></i> 1. Доходность</a>
+                        <a href="@Url.Action("RequestsByCustomer","Reports")"><i class="fa fa-calculator"></i> 2. Заявки по заказчикам</a>
+                        <a href="@Url.Action("RequestsSumsByCustomer","Reports")"><i class="fa fa-calculator"></i> 3. Суммы по заказчикам</a>
+                        <a href="@Url.Action("CashFromDriver","Reports")"><i class="fa fa-calculator"></i> 4. Наличные у водителя</a>
+                    </li>
+                </ul>
+            </li>
+        }
+
+    </ul>
+  </section>
+
+</aside>
